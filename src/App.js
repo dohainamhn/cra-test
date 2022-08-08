@@ -1,7 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { useEffect} from 'react'
+import axios from 'axios'
 function App() {
+
+  const test = async () => {
+    try {
+      const login = await axios.post('https://865b-171-234-233-200.ngrok.io/api/admin/auth/login', {
+        email: 'dohainam@gmail.com',
+        password: '123456',
+      });
+    } catch (error) {
+      console.log('erro', error);
+    }
+  };
+
+  useEffect(() => {
+    test();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
